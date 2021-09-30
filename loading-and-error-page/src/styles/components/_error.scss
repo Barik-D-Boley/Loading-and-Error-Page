@@ -1,0 +1,95 @@
+$face-size: 14rem;
+
+$happy-fill: #e8f5e9;
+$happy-color: #a5d6a7;
+
+$sad-fill: #ffebee;
+$sad-color: #ef9a9a;
+
+.happyFace {
+    margin: 0 auto;
+    position: relative;
+    background: $happy-fill;
+    height: $face-size;
+    width: $face-size;
+    border: $face-size*0.04 solid $happy-color;
+    border-radius: 50%;
+    &:after, &:before {
+        content: '';
+        position: absolute;
+    }
+    &:after {
+        content: '. .';
+        font-size: $face-size*0.6;
+        text-align: center;
+        color: $happy-color;
+        width: $face-size*0.5;
+        top: -$face-size*0.08;
+        left: $face-size*0.25;
+    }  
+    
+    &:before {
+        bottom: $face-size*0.3;
+        border-radius: 50%;
+        border: $face-size*0.03 solid transparent;
+        border-bottom-color: $happy-color;
+        height: $face-size*0.65;
+        right: $face-size*0.17; // = 0.5 - 0.6/2 - 0.03
+        width: $face-size*0.6;
+    }
+}
+  
+.sadFace {
+    @extend .happyFace;
+    background: $sad-fill;
+    border-color: $sad-color;
+    &:after {
+        color: $sad-color;
+    }
+    &:before {
+        bottom: -$face-size*0.3;
+        border-bottom-color: transparent;
+        border-top-color: $sad-color;
+    }
+}
+
+#errorContainer {
+    border: 1px solid blue;
+    width: 70rem;
+    display: flex;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+#faceContainer {
+    border: 1px solid black;
+    width: 20rem;
+}
+#textContainer {
+    border: 1px solid black;
+    width: 50rem;
+    padding: 0;
+}
+#errorTitle {
+    font-size: $face-size/2;
+    margin: 0;
+}
+#errorSubtitle {
+    font-size: $face-size/4;
+    margin: 0 0 1rem 0;
+}
+#errorText {
+    font-size: $face-size/6;
+    margin: 0 0 1rem 0;
+}
+#errorReload {
+    font-size: $face-size/5.5;
+    margin: 0;
+    color: royalblue;
+    &:hover {
+        cursor: pointer;
+    }
+}

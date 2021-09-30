@@ -1,37 +1,45 @@
 import React, { useState, useEffect } from 'react';
+import PokemonCard from './components/PokemonCard';
+import ErrorPage from './components/ErrorPage';
+
+let url='https://pokeapi.co/api/v2/pokemon/?limit=898'
 
 function App() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+    const [pokemon, setPokemon] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const res = await fetch(
-        'https://pokeapi.co/api/v2/pokemon/ditto',
-      );
-      const json = await res.json();
-      setData(json.hits);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, [setData]);
+    const getPokemon = async () => {
+        const response = await fetch(url);
+        const pokemon = await response.json();
+        setPokemon(pokemon.results);
+    }
 
-  return (
-    <React.Fragment>
-      {isLoading ? (
-        <p>Loading ...</p>
-      ) : (
-        <ul>
-          {data.map(item => (
-            <li key={item.ObjectId}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </React.Fragment>
-  );
+    useEffect(() => {
+        getPokemon()
+            .then(setIsLoading(false))
+            .catch((error) => {
+                console.log(error);
+                setIsError(true);
+            })
+    },[])
+
+    if (isLoading === true) {
+        return <div className='loader'></div>
+    }
+    if (isError === true) {
+        return <ErrorPage />
+    }
+
+    return (
+        <>
+            <button onClick={() => setIsLoading(true)}>Loading</button>
+            <button onClick={() => setIsError(true)}>Error</button>
+            {pokemon.map((card, index) => {
+                return <PokemonCard data={card} img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`} key={card.id}/>
+            })}
+        </>
+    )
 }
 
 export default App;

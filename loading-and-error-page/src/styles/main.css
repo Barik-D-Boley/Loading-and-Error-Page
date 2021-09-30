@@ -1,0 +1,125 @@
+.loader {
+  /* Where the square is positioned */
+  position: absolute;
+  top: calc(50% - 4em);
+  left: calc(50% - 4em);
+  /* Square Size */
+  width: 6em;
+  height: 6em;
+  /* Square Thickness and colors */
+  border: 1.1em solid rgba(0, 0, 0, 0.2);
+  border-left: 1.1em solid #000000;
+  /* Makes the square a Circle */
+  border-radius: 100%;
+  /* Spinning speed */
+  -webkit-animation: load8 1.1s infinite linear;
+          animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+  /* Rotates 360 degrees in the alloted time */
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  /* Rotates 360 degrees in the alloted time */
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.happyFace, .sadFace {
+  margin: 0 auto;
+  position: relative;
+  background: #e8f5e9;
+  height: 14rem;
+  width: 14rem;
+  border: 0.56rem solid #a5d6a7;
+  border-radius: 50%;
+}
+.happyFace:after, .sadFace:after, .happyFace:before, .sadFace:before {
+  content: "";
+  position: absolute;
+}
+.happyFace:after, .sadFace:after {
+  content: ". .";
+  font-size: 8.4rem;
+  text-align: center;
+  color: #a5d6a7;
+  width: 7rem;
+  top: -1.12rem;
+  left: 3.5rem;
+}
+.happyFace:before, .sadFace:before {
+  bottom: 4.2rem;
+  border-radius: 50%;
+  border: 0.42rem solid transparent;
+  border-bottom-color: #a5d6a7;
+  height: 9.1rem;
+  right: 2.38rem;
+  width: 8.4rem;
+}
+
+.sadFace {
+  background: #ffebee;
+  border-color: #ef9a9a;
+}
+.sadFace:after {
+  color: #ef9a9a;
+}
+.sadFace:before {
+  bottom: -4.2rem;
+  border-bottom-color: transparent;
+  border-top-color: #ef9a9a;
+}
+
+#errorContainer {
+  border: 1px solid blue;
+  width: 70rem;
+  display: flex;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#faceContainer {
+  border: 1px solid black;
+  width: 20rem;
+}
+
+#textContainer {
+  border: 1px solid black;
+  width: 50rem;
+  padding: 0;
+}
+
+#errorTitle {
+  font-size: 7rem;
+  margin: 0;
+}
+
+#errorSubtitle {
+  font-size: 3.5rem;
+  margin: 0 0 1rem 0;
+}
+
+#errorText {
+  font-size: 2.3333333333rem;
+  margin: 0 0 1rem 0;
+}
+
+#errorReload {
+  font-size: 2.5454545455rem;
+  margin: 0;
+  color: royalblue;
+}
+#errorReload:hover {
+  cursor: pointer;
+}
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}/*# sourceMappingURL=main.css.map */
