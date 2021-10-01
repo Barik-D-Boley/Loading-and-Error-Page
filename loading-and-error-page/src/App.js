@@ -25,7 +25,7 @@ function App() {
     },[])
 
     if (isLoading === true) {
-        return <div className='loader'></div>
+        return <div className='background'><div className='loader'></div></div>
     }
     if (isError === true) {
         return <ErrorPage />
@@ -33,11 +33,18 @@ function App() {
 
     return (
         <>
-            <button onClick={() => setIsLoading(true)}>Loading</button>
-            <button onClick={() => setIsError(true)}>Error</button>
-            {pokemon.map((card, index) => {
-                return <PokemonCard data={card} img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`} key={card.id}/>
-            })}
+            <div id='navbar'>
+                <div id='navbarCenter'>
+                    <div className='navItem' onClick={() => setIsLoading(true)}><p>Loading</p></div>
+                    <div className='navItem' onClick={() => document.documentElement.scrollTop = 0}><p>Back to Top</p></div>
+                    <div className='navItem' onClick={() => setIsError(true)}><p>Error</p></div>
+                </div>
+            </div>
+            <div className='pokemonCards'>
+                {pokemon.map((card, index) => {
+                    return <PokemonCard data={card} img={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`} key={card.id}/>
+                })}
+            </div>
         </>
     )
 }

@@ -1,0 +1,64 @@
+$img-width: 15rem;
+
+body {
+    background-image: url('../Utils/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#navbar {
+    top: 0;
+    display: inline-flex;
+    height: 5rem;
+    width: 100%;
+    background-color: red;
+    position: sticky;
+}
+#navbarCenter {
+    display: flex;
+    margin: 0 auto;
+}
+.navItem {
+    margin: 0 1rem;
+    width: 10rem;
+    font-size: 1.3rem;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin-block: auto;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.pokemonCards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: $img-width*0.03 0;
+}
+.cardContainer {
+    display: inline-flex;
+    flex-direction: column;
+    margin: $img-width*0.03 0;
+}
+.image {
+    width: 100%;
+    display: flex;
+    flex: 1 1 100%;
+    width: $img-width;
+    height: $img-width;
+    background-color: #ffdbdb;
+}
+.name {
+    width: 100%;
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-block: auto;
+    text-transform: capitalize;
+    font-size: $img-width/7;
+    background-color: #FF0000;
+    color: white;
+    padding: $img-width*0.036 0;
+}

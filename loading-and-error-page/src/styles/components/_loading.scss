@@ -18,6 +18,11 @@
     /* Spinning speed */
     animation: load8 1.1s infinite linear;
 }
+.background {
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: white;
+}
 
 @keyframes load8 {
     /* Rotates 360 degrees in the alloted time */
