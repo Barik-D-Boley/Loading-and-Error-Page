@@ -1,7 +1,6 @@
 @import '../theme/defaultTheme';
 
 $face-size: 14rem;
-
 .happyFace {
     margin: 0 auto;
     position: relative;
@@ -49,6 +48,11 @@ $face-size: 14rem;
     }
 }
 
+.bodyContainer {
+    width: 100%;
+    height: 100vh;
+    background: white;
+}
 #errorContainer {
     width: 70rem;
     display: flex;
