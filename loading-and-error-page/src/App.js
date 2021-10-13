@@ -12,6 +12,8 @@ function App() {
     const getPokemon = async () => {
         const response = await fetch(url);
         const pokemon = await response.json();
+        console.log(pokemon);
+        console.log(pokemon.results);
         setPokemon(pokemon.results);
     }
 
